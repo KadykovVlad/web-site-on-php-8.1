@@ -9,6 +9,8 @@ use Smarty;
 
 final class ArticleController
 {
+    private const SIMILAR_LIMIT = 3;
+
     public function __construct(
         private readonly Smarty $view,
         private readonly ArticleRepository $articles,
@@ -29,7 +31,15 @@ final class ArticleController
             return;
         }
 
+        $this->articles->incrementViews((int) $article['id']);
+
+        $categories = $this->articles->categoriesForArticle((int) $article['id']);
+        $categoryIds = array_column($categories, 'id');
+        $similar = $this->articles->similar((int) $article['id'], $categoryIds, self::SIMILAR_LIMIT);
+
         $this->view->assign('article', $article);
+        $this->view->assign('categories', $categories);
+        $this->view->assign('similar', $similar);
         $this->view->display('pages/article.tpl');
     }
 }

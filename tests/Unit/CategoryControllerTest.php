@@ -38,7 +38,8 @@ final class CategoryControllerTest extends TestCase
 
         $this->assertSame('date', $view->getTemplateVars('sort'));
         $articles = $view->getTemplateVars('articles');
-        $this->assertCount(4, $articles);
+        // PER_PAGE = 6, в категории 7 статей — на первой странице только 6.
+        $this->assertCount(6, $articles);
         $this->assertSame('pdo-vs-mysqli-2026', $articles[0]['slug']);
         $this->assertStringContainsString('PHP', $html);
     }
