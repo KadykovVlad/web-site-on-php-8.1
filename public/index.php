@@ -33,7 +33,7 @@ $categoryRepository = new CategoryRepository($pdo);
 $articleRepository = new ArticleRepository($pdo);
 
 $homeController = new HomeController($smarty, $categoryRepository, $articleRepository);
-$categoryController = new CategoryController($smarty, $categoryRepository);
+$categoryController = new CategoryController($smarty, $categoryRepository, $articleRepository);
 $articleController = new ArticleController($smarty, $articleRepository);
 
 $router = new Router();
