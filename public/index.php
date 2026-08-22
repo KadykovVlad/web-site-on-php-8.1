@@ -32,7 +32,7 @@ try {
 $categoryRepository = new CategoryRepository($pdo);
 $articleRepository = new ArticleRepository($pdo);
 
-$homeController = new HomeController($smarty, $categoryRepository);
+$homeController = new HomeController($smarty, $categoryRepository, $articleRepository);
 $categoryController = new CategoryController($smarty, $categoryRepository);
 $articleController = new ArticleController($smarty, $articleRepository);
 
