@@ -22,7 +22,8 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "seed": "php bin/seed.php"
     },
     "config": {
         "sort-packages": true,

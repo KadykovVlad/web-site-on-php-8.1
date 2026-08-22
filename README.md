@@ -54,6 +54,18 @@ mysql -u root -p < database/schema.sql
 php -S localhost:8080 -t public
 ```
 
+## Сидинг
+
+Наполняет БД тестовыми категориями и статьями (данные — в `database/seeds/`). Скрипт можно
+запускать повторно: перед вставкой он полностью очищает таблицы `categories`, `articles`,
+`article_category`.
+
+```bash
+docker compose exec app composer seed
+# или без Docker:
+composer seed
+```
+
 ## Тесты
 
 ```bash
@@ -67,7 +79,7 @@ vendor/bin/phpunit
 
 - [x] Структура проекта, Docker-окружение, Composer, Smarty, конфигурация БД и тестов
 - [x] Репозитории категорий и статей
-- [ ] Сидинг категорий и статей
+- [x] Сидинг категорий и статей
 - [ ] Роутинг и базовые Smarty-шаблоны
 - [ ] Главная страница
 - [ ] Страница категории (сортировка, пагинация)
