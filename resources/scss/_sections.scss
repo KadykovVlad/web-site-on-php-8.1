@@ -1,0 +1,50 @@
+.category-section {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $color-border;
+    padding-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-heading;
+    margin: 0;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $color-text-muted;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    &:hover {
+      color: $color-heading;
+    }
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.empty-message {
+  color: $color-text-muted;
+  grid-column: 1 / -1;
+}

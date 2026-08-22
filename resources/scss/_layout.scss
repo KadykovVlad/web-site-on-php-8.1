@@ -1,0 +1,44 @@
+.site-header {
+  background: $color-brand-dark;
+  color: $color-white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  &__inner {
+    @extend .container;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+.site-main {
+  @extend .container;
+  flex: 1 0 auto;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  background: $color-brand-dark;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.75rem;
+
+  &__inner {
+    @extend .container;
+  }
+}

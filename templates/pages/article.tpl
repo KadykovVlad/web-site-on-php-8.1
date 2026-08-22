@@ -1,35 +1,36 @@
 {include file='partials/header.tpl'}
-<article>
+<article class="article">
+<a class="article__back" href="/" onclick="history.back(); return false;">&larr; Назад</a>
 {if $article.image}
-<img alt="{$article.title}" class="w-full max-h-96 object-cover rounded-lg mb-8" src="{$article.image}">
+<img alt="{$article.title}" class="article__image" src="{$article.image}">
 {/if}
 
-<div class="flex flex-wrap items-center gap-3 text-xs text-text-muted mb-4">
+<div class="article__categories">
 {foreach $categories as $category}
-    <a class="uppercase tracking-widest font-semibold hover:text-brand-dark" href="/category/{$category.slug}">{$category.name}</a>
+    <a class="article__category-link" href="/category/{$category.slug}">{$category.name}</a>
 {/foreach}
 </div>
 
-<h1 class="text-4xl font-bold serif-font mb-3">{$article.title}</h1>
+<h1 class="article__title serif">{$article.title}</h1>
 
-<div class="flex items-center gap-4 text-xs text-gray-400 mb-8">
+<div class="article__meta">
 <span>{$article.published_at|date_format:"%d.%m.%Y"}</span>
 <span>{$article.views_count} просмотров</span>
 </div>
 
 {if $article.description}
-<p class="text-lg text-text-muted leading-relaxed mb-8">{$article.description}</p>
+<p class="article__description">{$article.description}</p>
 {/if}
 
-<div class="text-gray-800 leading-relaxed space-y-4">{$article.content|escape|nl2br}</div>
+<div class="article__content">{$article.content|escape|nl2br}</div>
 </article>
 
 {if $similar}
 <section>
-<div class="border-b border-gray-200 pb-2 mb-8">
-<h2 class="text-sm font-semibold tracking-widest uppercase text-gray-900">Похожие статьи</h2>
+<div class="category-section__head">
+<h2 class="category-section__title">Похожие статьи</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="card-grid">
 {foreach $similar as $item}
     {include file='partials/article-card.tpl' article=$item}
 {/foreach}

@@ -1,0 +1,22 @@
+.not-found {
+  text-align: center;
+  padding: 6rem 0;
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $color-heading;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    &:hover {
+      color: $color-brand-dark;
+    }
+  }
+}
